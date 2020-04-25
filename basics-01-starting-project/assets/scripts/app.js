@@ -1,5 +1,6 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
 function getUserNumberInput() {
     return +userInput.value;
@@ -10,6 +11,8 @@ function add() {
     const calcDescription = `${currentResult} + ${enteredNumber}`;
     currentResult += enteredNumber;
     outputResult(currentResult, calcDescription);
+    logEntries.push(enteredNumber);
+    console.log(logEntries);
 }
 
 function substract() {

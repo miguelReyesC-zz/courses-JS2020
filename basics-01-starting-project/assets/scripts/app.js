@@ -8,28 +8,28 @@ function getUserNumberInput() {
 function add() {
     const enteredNumber = getUserNumberInput();
     const calcDescription = `${currentResult} + ${enteredNumber}`;
-    currentResult = currentResult + enteredNumber;
+    currentResult += enteredNumber;
     outputResult(currentResult, calcDescription);
 }
 
 function substract() {
     const enteredNumber = getUserNumberInput();
     const calcDescription = `${currentResult} - ${enteredNumber}`;
-    currentResult = currentResult - enteredNumber;
+    currentResult -= enteredNumber;
     outputResult(currentResult, calcDescription);
 }
 
 function multiply() {
     const enteredNumber = getUserNumberInput();
     const calcDescription = `${currentResult} * ${enteredNumber}`;
-    currentResult = currentResult * enteredNumber;
+    currentResult *= enteredNumber;
     outputResult(currentResult, calcDescription);
 }
 
 function divide() {
     const enteredNumber = getUserNumberInput();
     const calcDescription = `${currentResult} / ${enteredNumber}`;
-    currentResult = currentResult / enteredNumber;
+    currentResult /= enteredNumber;
     outputResult(currentResult, calcDescription);
 }
 

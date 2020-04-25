@@ -8,10 +8,17 @@ function getUserNumberInput() {
 
 function add() {
     const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
     const calcDescription = `${currentResult} + ${enteredNumber}`;
     currentResult += enteredNumber;
     outputResult(currentResult, calcDescription);
-    logEntries.push(enteredNumber);
+    const logEntry = {
+        operation: "ADD",
+        prevResult: initialResult,
+        number: enteredNumber,
+        result: currentResult,
+    };
+    logEntries.push(logEntry);
     console.log(logEntries);
 }
 

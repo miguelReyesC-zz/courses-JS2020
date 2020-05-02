@@ -23,7 +23,15 @@ function writeToLog(
 }
 
 function calculateResult(calculationType) {
-    const enteredNumber = getUserNumberInput();
+    if (
+        calculationType !== "ADD" &&
+        calculationType !== "SUBTRACT" &&
+        calculationType !== "MULTIPLY" &&
+        calculationType !== "DIVIDE"
+    ) {
+        return;
+    }
+        const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     let mathOperator;
     if (calculationType === "ADD") {

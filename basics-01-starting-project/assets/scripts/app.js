@@ -6,7 +6,12 @@ function getUserNumberInput() {
     return +userInput.value;
 }
 
-function writeToLog(operationIdentifier, prevResult, operationNumber, newResult) {
+function writeToLog(
+    operationIdentifier,
+    prevResult,
+    operationNumber,
+    newResult
+) {
     const logEntry = {
         operation: operationIdentifier,
         prevResult: prevResult,
@@ -17,23 +22,33 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries);
 }
 
-function add() {
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    const calcDescription = `${currentResult} + ${enteredNumber}`;
-    currentResult += enteredNumber;
+    let mathOperator;
+    if (calculationType === "ADD") {
+        currentResult += enteredNumber;
+        mathOperator = "+";
+    } else {
+        currentResult -= enteredNumber;
+        mathOperator = "-";
+    }
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+}
+
+// Generates and writes calculation log
+function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
     outputResult(currentResult, calcDescription);
-    writeToLog("ADD", initialResult, enteredNumber, currentResult);
+}
+
+function add() {
+    calculateResult("ADD");
 }
 
 function subtract() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    const calcDescription = `${currentResult} - ${enteredNumber}`;
-    currentResult -= enteredNumber;
-    outputResult(currentResult, calcDescription);
-    writeToLog("SUBTRACT", initialResult, enteredNumber, currentResult);
-
+    calculateResult("SUBTRACT");
 }
 
 function multiply() {
